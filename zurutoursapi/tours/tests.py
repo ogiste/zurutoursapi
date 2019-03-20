@@ -115,4 +115,33 @@ class TourViewTestCase(TestCase):
         )
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+    
+    def test_api_can_get_a_user(self):
+        """Test the api can get a given tour."""
+        self.client.credentials()
+        tour = Tour.objects.get()
+        response = self.client.get(
+            reverse('details-tour',
+            kwargs={'pk': tour.id}), format="json")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_api_can_update_user(self):
+        """Test the api can update a given tour."""
+        tour = Tour.objects.get()
+        change_last_name = {'description': 'Updated description'}
+        response = self.client.patch(
+            reverse('details-tour', kwargs={'pk': tour.id}),
+            change_last_name, format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_api_can_delete_user(self):
+        """Test the api can delete a tour."""
+        tour = Tour.objects.get()
+        response = self.client.delete(
+            reverse('details-tour', kwargs={'pk': tour.id}),
+            format='json',
+            follow=True)
+
+        self.assertEquals(response.status_code, status.HTTP_204_NO_CONTENT)
 
