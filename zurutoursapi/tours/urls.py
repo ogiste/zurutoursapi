@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
-from .views import TourCreate
+from .views import TourListCreate
 
 urlpatterns = [
-    path('', TourCreate.as_view(), name = 'create-tour'),
+    path('', TourListCreate.as_view(), name = 'create-tour'),
 ]

@@ -12,8 +12,6 @@ class TourModelSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         tour = Tour(**validated_data)
-        print('validated data')
-        print(str(self.context['request'].user))
         tour.createdBy_id = self.context['request'].user.id
         tour.save()
         return tour
