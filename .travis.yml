@@ -4,7 +4,8 @@ python:
   - "3.6"
 
 install:
-  - pipenv install
+  - pip install -r requirements.txt
+  - pip install coveralls
 
 services:
   - postgresql
@@ -18,3 +19,6 @@ before_script:
 script:
   - cd zurutoursapi
   - python manage.py test
+
+after_success:
+  - coveralls
