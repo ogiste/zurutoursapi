@@ -1,6 +1,8 @@
 # ZuruToursAPI
 [![Build Status](https://travis-ci.org/ogiste/zurutoursapi.svg?branch=backend-api)](https://travis-ci.org/ogiste/zurutoursapi)
 
+[![Coverage Status](https://coveralls.io/repos/github/ogiste/zurutoursapi/badge.svg?branch=backend-api)](https://coveralls.io/github/ogiste/zurutoursapi?branch=backend-api)
+
 
 API for a Web-based tours and travel website.
 
