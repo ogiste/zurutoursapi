@@ -1,0 +1,1 @@
+web: gunicorn zurutoursapi.wsgi:application --pythonpath ./zurutoursapi
