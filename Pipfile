@@ -12,6 +12,7 @@ django-filter = "*"
 django = "*"
 psycopg2 = "*"
 djangorestframework-simplejwt = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.7"

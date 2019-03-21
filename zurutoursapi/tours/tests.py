@@ -5,6 +5,8 @@ from rest_framework.test import APIClient
 from django.urls import path, reverse
 from rest_framework import status
 from datetime import date, datetime, timedelta
+from pytz import timezone
+import pytz
 from rest_framework_simplejwt.tokens import RefreshToken
 from zuruusers.models import User
 
@@ -32,6 +34,7 @@ class TourModelTest(TestCase):
         self.auth_user = User.objects.get()
         self.client.force_authenticate(user=self.auth_user)
         current_date = datetime.today()
+        current_date.replace(tzinfo=pytz.utc)
         start_date = current_date.isoformat(' ')
         end_date = datetime.fromisoformat(start_date) + timedelta(days=1)
         
