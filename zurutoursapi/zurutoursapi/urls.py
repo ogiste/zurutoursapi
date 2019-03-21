@@ -22,6 +22,6 @@ from zuruusers import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('zuruusers.urls')),
-    path('api/token/', TokenObtainPairView.as_view()),
-    path('api/token/refresh/', TokenRefreshView.as_view())
+    path('api/auth/', TokenObtainPairView.as_view()),
+    path('api/auth/refresh/', TokenRefreshView.as_view())
 ]

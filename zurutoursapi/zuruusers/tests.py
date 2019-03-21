@@ -33,42 +33,44 @@ class UserViewTestCase(UserBaseTestCase):
         }
         self.client = APIClient()
         
+        self.response = self.client.post(
+            reverse('create-user'),
+            self.test_user,
+            format = 'json'
+        )
+        self.auth_user = User.objects.get()
+        self.client.force_authenticate(user=self.auth_user)
+        
 
     def test_api_can_create_user(self):
         """
         Test to assert if API creates user successfully
         """
-        response = self.client.post(
-            reverse('create-user'),
-            self.test_user,
-            format = 'json'
-        )
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(self.response.status_code, status.HTTP_201_CREATED)
     
     def test_api_can_get_a_user(self):
         """Test the api can get a given user."""
         user = User.objects.get()
         response = self.client.get(
-            reverse('user-details',
+            reverse('details-user',
             kwargs={'pk': user.id}), format="json")
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertContains(response, user)
+        self.assertEqual(respons.status_code, status.HTTP_200_OK)
 
     def test_api_can_update_user(self):
+        user = User.objects.get()
         """Test the api can update a given user."""
         change_last_name = {'last_name': 'Fakename'}
-        res = self.client.put(
-            reverse('user-details', kwargs={'pk': user.id}),
+        response = self.client.patch(
+            reverse('details-user', kwargs={'pk': user.id}),
             change_last_name, format='json'
         )
-        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_api_can_delete_user(self):
         """Test the api can delete a user."""
         user = User.objects.get()
         response = self.client.delete(
-            reverse('user-details', kwargs={'pk': user.id}),
+            reverse('details-user', kwargs={'pk': user.id}),
             format='json',
             follow=True)
 
