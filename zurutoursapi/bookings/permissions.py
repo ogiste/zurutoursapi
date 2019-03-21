@@ -38,7 +38,6 @@ class CanReadUpdateDeleteSingleBooking(BasePermission):
             return True
         if (request.method == 'DELETE' and request.user.is_authenticated 
             and can_read_or_delete_booking(request.user, booking_id)):
-            print(dir(request))
             return True
         return (request.user.is_superuser or request.user.is_staff) and request.user.is_authenticated
     
