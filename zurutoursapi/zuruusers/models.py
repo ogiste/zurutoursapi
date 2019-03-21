@@ -24,11 +24,14 @@ class User(AbstractUser):
         """
         Return a human readable representation of the user instance.
         """
-        return "username: {}, first_name:{}, last_name:{}, phone:{} ".format(
+        return "id:{}, username: {}, first_name:{}, last_name:{}, phone:{}, is_superuser:{}, is_staff:{} ".format(
+            self.id,
             self.username,
             self.first_name,
             self.last_name,
-            self.phone
+            self.phone,
+            self.is_superuser,
+            self.is_staff,
             )
     
 
