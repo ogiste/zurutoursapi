@@ -87,6 +87,11 @@ class TourViewTestCase(TestCase):
             'end_datetime': end_date,
             'description': 'First description',
         }
+        response = self.client.post(
+            reverse('create-tour'),
+            self.test_tour,
+            format = 'json'
+        )
 
     def test_tour_view_can_create_tour(self):
         """
@@ -98,4 +103,16 @@ class TourViewTestCase(TestCase):
             format = 'json'
         )
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_tour_view_can_list_all_tours(self):
+        """
+        Test to assert if API list all tours successfully
+        """
+       
+        self.client.credentials()
+        response = self.client.get(
+            reverse('create-tour')
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
