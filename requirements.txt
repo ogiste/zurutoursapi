@@ -1,0 +1,9 @@
+-i https://pypi.org/simple
+django-filter==2.1.0
+django==2.1.7
+djangorestframework-simplejwt==4.1.0
+djangorestframework==3.9.2
+markdown==3.0.1
+psycopg2==2.7.7
+pyjwt==1.7.1
+pytz==2018.9
