@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k0=y9fh!yszbd$2z7-1bhjq6#a30jc1=^3c1-090olt1nsfcvk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['zurutours.herokuapp.com']
 
