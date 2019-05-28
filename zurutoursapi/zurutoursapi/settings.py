@@ -26,7 +26,7 @@ SECRET_KEY = 'k0=y9fh!yszbd$2z7-1bhjq6#a30jc1=^3c1-090olt1nsfcvk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zurutours.herokuapp.com', 'localhost', 'localhost:8080', 'localhost:8000', 'localhost:3000', '127.0.0.1', 'zurutours-ui.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 #APPEND_SLASH
 APPEND_SLASH=False
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'zuruusers',
     'tours',
     'bookings',
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -172,3 +174,5 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(hours=12),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
