@@ -26,7 +26,7 @@ SECRET_KEY = 'k0=y9fh!yszbd$2z7-1bhjq6#a30jc1=^3c1-090olt1nsfcvk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zurutours.herokuapp.com', 'localhost', '127.0.0.1', 'zurutours-ui.herokuapp.com']
+ALLOWED_HOSTS = ['zurutours.herokuapp.com', 'localhost', 'localhost:8080', 'localhost:8000', 'localhost:3000', '127.0.0.1', 'zurutours-ui.herokuapp.com']
 
 #APPEND_SLASH
 APPEND_SLASH=False
